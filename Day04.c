@@ -17,10 +17,8 @@ Output:
 
 Explanation: Swap pairs from both ends: (1,5), (2,4), middle 3 stays*/
 #include <stdio.h>
-
 int main() {
     int n;
-
     // Read array size
     scanf("%d", &n);
 
@@ -42,7 +40,6 @@ int main() {
         left++;
         right--;
     }
-
     // Print reversed array
     for (int i = 0; i < n; i++) {
         printf("%d ", arr[i]);
