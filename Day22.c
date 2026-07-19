@@ -1,0 +1,61 @@
+/*Problem: Count Nodes in Linked List
+
+Input:
+- First line: integer n
+- Second line: n space-separated integers
+
+Output:
+- Print the result
+
+Example:
+Input:
+5
+10 20 30 40 50
+
+Output:
+10 20 30 40 50*/
+#include <stdio.h>
+#include <stdlib.h>
+
+// Structure for a node
+struct Node {
+    int data;
+    struct Node *next;
+};
+
+int main() {
+    int n, i, value, count = 0;
+
+    scanf("%d", &n);
+
+    struct Node *head = NULL, *temp = NULL, *newNode;
+
+    // Create Linked List
+    for (i = 0; i < n; i++) {
+        scanf("%d", &value);
+
+        newNode = (struct Node *)malloc(sizeof(struct Node));
+        newNode->data = value;
+        newNode->next = NULL;
+
+        if (head == NULL) {
+            head = newNode;
+            temp = head;
+        } else {
+            temp->next = newNode;
+            temp = newNode;
+        }
+    }
+
+    // Count nodes
+    temp = head;
+    while (temp != NULL) {
+        count++;
+        temp = temp->next;
+    }
+
+    // Print count
+    printf("%d", count);
+
+    return 0;
+}
